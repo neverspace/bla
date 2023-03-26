@@ -37,10 +37,10 @@ jobs:
       - name: Build artifact
         run: >
           for department in `ls syllabi`; do
-            python build/build.py "$department" > "$department.html"
+            python build/build.py "$department"
           done
-      - name: Set default syllabi page to Computer Science
-        run: cp CS.html index.html
+      - name: Set landing page to CS syllabi page
+        run: cp cs.html index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
